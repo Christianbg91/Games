@@ -1,3 +1,3 @@
 window.onload = function () {
-    new Menu("gc");
+    new Menu("gc"); 
 };

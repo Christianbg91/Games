@@ -13,8 +13,8 @@ class Game {
         this.active = true;
         this.initGame();
         this.gameInterval;
-        this.eatSound = document.getElementsByClassName('eatSound')[0];
-        this.dieSound = document.getElementsByClassName('dieSound')[0];
+        this.eatSound = document.getElementById('eatSound');
+        this.dieSound = document.getElementById('dieSound');
     }
 
     makeFrame() {
