@@ -13,14 +13,18 @@ class Game {
         this.active = true;
         this.initGame();
         this.gameInterval;
+        this.eatSound = document.getElementsByClassName('eatSound')[0];
+        this.dieSound = document.getElementsByClassName('dieSound')[0];
     }
 
     makeFrame() {
         switch (this.snake.move(this.apple.position, this.boardWidth, this.boardHeight)) {
             case 1:
+                this.eatSound.play();
                 this.apple.generateApple(this.boardWidth, this.boardHeight, this.snake.trail);
                 break;
             case -1:
+                this.dieSound.play();
                 this.active = false;
                 break;
         }
@@ -33,7 +37,7 @@ class Game {
             $(document).unbind("keydown");
             setTimeout(function () {
                 new Menu(this.canvasId, this.snake.size - 5, this.fps, this.boardWidth);
-            }.bind(this), 3000);
+            }.bind(this), 4000);
             clearInterval(this.gameInterval);
         }
     }

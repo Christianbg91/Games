@@ -9,6 +9,8 @@ class Menu {
         this.gameSize = lastSize;
         this.lastScore = lastScore;
         this.showScore = this.lastScore > -1 ? ['main'] : [];
+        this.eatSound = new Sound('./static/sounds/eat.wav', `eatSound`);
+        this.dieSound = new Sound('./static/sounds/gameover.wav', `dieSound`);
 
         this.buttons = [
             {
@@ -238,6 +240,7 @@ class Menu {
             return
         }
 
+        this.eatSound.play();
         this.highlightDifficulty();
         this.mouseClickEvent(filter);
         this.mouseOverEvent(filter);
